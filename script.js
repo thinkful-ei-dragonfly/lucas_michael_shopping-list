@@ -1,12 +1,13 @@
 'use strict';
 
+
 function checkDelete() {
-  $('.shopping-item-controls button').click(function(e) {
-    let shoppingListItem = $(e.currentTarget).parents('li');
+  $('ul').on('click', 'button', function(e) {
+    let shoppingListItem = $(this).closest('li');
     let shoppingListItemName = shoppingListItem.find('.shopping-item');
-    if ($(e.currentTarget).is($('.shopping-item-toggle'))) {
+    if ($(this).is($('.shopping-item-toggle'))) {
       shoppingListItemName.toggleClass('shopping-item__checked');
-    } else if ($(e.currentTarget).is($('.shopping-item-delete'))) {
+    } else if ($(this).is($('.shopping-item-delete'))) {
       shoppingListItem.remove();
     }
   });
@@ -29,11 +30,13 @@ function createItem() {
         </div>
       </li>`);
     $('#shopping-list-entry').val('');
-    $(checkDelete);
-    // ^ there's probably a cleaner way to do this,
-    // rather than rerunning the checkDelete function
   });
+
+  // ^ there's probably a cleaner way to do this,
+  // rather than rerunning the checkDelete function
 }
+
+
 
 // function checkItems() {
 //   $('.shopping-item-toggle').click(function(e) {
