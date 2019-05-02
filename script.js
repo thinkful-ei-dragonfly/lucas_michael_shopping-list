@@ -61,3 +61,4 @@ function createItem() {
 
 $(checkDelete);
 $(createItem);
+$('input').prop('required',true);
